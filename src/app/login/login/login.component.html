@@ -1,5 +1,5 @@
 <!--app-header></app-header -->
-<div class="container loginpanel">
+<div class="container loginpanel" style="min-height:450px;">
   
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-12"></div>
@@ -14,7 +14,7 @@
           <label for="pwd">Password:</label>
           <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter Password" [(ngModel)]="loginData.password">
         </div>
-        <p>Note: admin/admin as default credentials</p>
+        <p class="text-secondary small">Credentials: <i>admin/admin </i></p>
       <button type="button" class="btn btn-primary"  (click)="login()">Submit</button>  
       <div>
           <br/><div *ngIf="errorMsg" class="alert alert-danger alert-dismissible fade show" [innerHTML]="errorMsg"></div>

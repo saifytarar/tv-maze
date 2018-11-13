@@ -1,0 +1,18 @@
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
+      <a routerLink="/" class="navbar-brand">
+        <img src="/assets/images/tvm-header-logo.png" width="120" alt="">
+      </a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav" >
+        
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" routerLinkActive="active"><a routerLink="contact" class="nav-link">People</a></li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="authService.isAuthentiated()"><a routerLink="shows" class="nav-link">Shows</a></li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="!authService.isAuthentiated()"><a  routerLink="login" class="nav-link">Login</a></li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="authService.isAuthentiated()"><a (click)="logout()" style="cursor: pointer;" class="nav-link">Logout</a></li>
+      </ul>
+    </div>
+</nav>

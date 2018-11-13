@@ -1,0 +1,84 @@
+
+<div class="container-fluid">
+ <div class="row">
+   <div class="col-lg-2 col-md-12 col-sm-12"></div>
+   <div class="col-lg-8 col-md-12 col-sm-12"> 
+<h4>Shows</h4>
+<div>
+<mat-form-field class="search-form-field" floatLabel="never">
+    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
+      <mat-icon>X</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+<br/>
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="listData">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div style="margin: 15px;">
+       <div class="row">
+         <div class="col-lg-4 col-md-6 col-sm-12">
+          <img *ngIf="element.image" src="{{element.image.medium}}"/> 
+        </div>
+        <div class="col-lg-8 col-md-6 col-sm-12">
+          <h4>{{element.name}}</h4>
+          <h6>Rating :  <span class="badge badge-secondary">{{element.rating.average}}</span></h6>
+          <h6>Status: {{element.status}}</h6>          
+          <p [innerHTML]="element.summary" style="color:#909090;"></p>          
+         <a routerLink="/showdetail/{{element.id}}" class="btn btn-primary">Read More</a>
+      </div>
+      </div>
+      </div>
+      </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        Loading data...
+      </mat-footer-cell>
+    </ng-container>
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        No matching data.
+      </mat-footer-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.filteredData.length==0)}"></mat-footer-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>
+</div>
+<div class="col-lg-2 col-md-12 col-sm-12"></div> 
+<!-- row ended -->
+</div>
+<!--
+
+    <div class="container">
+        <h3>Shows</h3>
+
+    <button (click)="checkit()" type="button">TEST</button>
+      <div class="row">
+      
+        <div class="col-*-*" *ngFor="let s of showsList"> 
+
+          <div class="card" style="width:250px; padding: 20px;">
+           <img *ngIf="s.image" src="{{s.image.medium}}" class="card-img-top" style="width:100%"/>
+            <div class="card-body">
+              <h4 class="card-title">{{s.name}}</h4>
+              <p class="card-text">{{s.score}}</p>
+              <a routerLink="/showdetail/{{s.id}}" class="btn btn-primary">See Details</a>
+            </div>
+          </div>
+      </div>
+   </div>
+      <div class="service-error" *ngIf="error">
+        <h1>{{error.errorTitle}}</h1>
+        <h3>{{error.errorDesc}}</h3>
+      </div>
+    </div>
+  -->

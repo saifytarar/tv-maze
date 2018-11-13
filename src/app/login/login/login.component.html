@@ -1,0 +1,27 @@
+<!--app-header></app-header -->
+<div class="container loginpanel">
+  
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12"></div>
+        <div class="col-lg-8 col-md-8 col-sm-12">
+         <h4>Login</h4>
+
+        <div class="form-group">
+          <label for="usr">Name:</label>
+          <input type="text" class="form-control" id="usr" name="username"  placeholder="Enter username" [(ngModel)]="loginData.userName">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter Password" [(ngModel)]="loginData.password">
+        </div>
+        <p>Note: admin/admin as default credentials</p>
+      <button type="button" class="btn btn-primary"  (click)="login()">Submit</button>  
+      <div>
+          <br/><div *ngIf="errorMsg" class="alert alert-danger alert-dismissible fade show" [innerHTML]="errorMsg"></div>
+      </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-12"></div>
+      </div>
+    
+  </div>
+  <!--app-footer></app-footer-->

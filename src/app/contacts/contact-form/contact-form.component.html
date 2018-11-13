@@ -1,0 +1,47 @@
+<!--app-header></app-header -->
+
+<div class="container">
+  <form (ngSubmit)="onSubmit(f,mytemplate)" #f="ngForm">
+    
+    <div class="row">
+        <div class="col-lg-4, col-md-2 , col-sm-12"></div>
+        <div class="col-lg-4, col-md-8 , col-sm-12">
+            <h4>Add Contact</h4>
+        
+          <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control"  id="name" name="name"  placeholder="Enter Name" ngModel required>
+          </div>
+          <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="subject" >Subject:</label>
+            <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject" ngModel required>
+          </div>
+          <div class="form-group">
+              <label for="body">Body:</label>
+              <textarea type="text" class="form-control" id="body" name="body" placeholder="Enter Body" ngModel></textarea>
+          </div>
+
+          <button type="submit"  class="btn btn-primary" 
+          [disabled]="!f.valid">Submit</button>
+        </div>
+        <div class="col-lg-4, col-md-2 , col-sm-12"></div> 
+      </div>
+    </form>  
+    <!-- dialog -->
+ 
+    <ng-template #mytemplate>
+        <h1 mat-dialog-title>Status</h1>
+      <mat-dialog-content><p>Contact saved successfully.</p></mat-dialog-content>
+        <mat-dialog-actions>
+        <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+          <button mat-raised-button [mat-dialog-close]="true">Close</button>
+        </mat-dialog-actions>
+
+    </ng-template>
+    <!-- end dialog -->
+  </div>
+  <!--app-footer></app-footer-->

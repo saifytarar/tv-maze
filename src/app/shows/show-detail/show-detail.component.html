@@ -1,0 +1,20 @@
+<div class="container-fluid" *ngIf="showDet">
+  
+  
+  <div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-12"></div>
+    <div class="col-lg-4 col-md-3 col-sm-12"><img src="{{showDet.image.original}}" width="100%"/></div>
+    <div class="col-lg-4 col-md-3 col-sm-12">
+        <h3>{{showDet.name}}</h3>
+      <div><strong>Language:</strong> {{showDet.language}}</div>
+      <div>Status: {{showDet.status}}</div>      
+      <div>Rating: {{showDet.rating.average}}</div>
+      <div>Official Site: <a href="{{showDet.officialSite}}">{{showDet.officialSite}}</a></div>
+        <br/>
+      <h5>Summary</h5>
+      <div [innerHTML]="showDet.summary" class="text-secondary"></div>
+      <button class="btn btn-primary" onclick="history.back();">BACK TO LIST</button>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-12"></div>
+  </div>
+</div>

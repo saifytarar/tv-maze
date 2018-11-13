@@ -7,6 +7,7 @@ export class ShowDetail{
     public id : string;
     public name : string;
     public language : string;
+    public schedule: {time:'', days};
     public status : string;
     public rating : number;
     public image : {medium:'', original:''};

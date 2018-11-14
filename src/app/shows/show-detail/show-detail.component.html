@@ -1,5 +1,6 @@
-<div class="container-fluid" *ngIf="showDet" style="min-height:450px">
-  
+<div class="container-fluid">
+  <div *ngIf="!showDet">Loading...</div>
+  <div *ngIf="showDet">
   
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-12"></div>
@@ -20,4 +21,5 @@
     <div class="col-lg-4 col-md-4 col-sm-12"><img src="{{showDet.image.original}}" style="width:90%"/></div>
     <div class="col-lg-2 col-md-2 col-sm-12"></div>
   </div>
+</div>
 </div>

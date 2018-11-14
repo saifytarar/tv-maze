@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+
 /*---Media Queries --*/
 @media (max-width: 992px) {
 
@@ -12,6 +13,8 @@
 @media (max-width: 576px) {
   
 }
+
+
 html,body{
     height:100%;
     width: 100%;
@@ -28,4 +31,10 @@ html,body{
 }
 .nav-link{
     font-size: 1.1em
+}
+
+$contentHeight:450px;
+
+.container, .container-fluid{
+    min-height: $contentHeight;
 }
